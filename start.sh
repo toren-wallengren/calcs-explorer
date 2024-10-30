@@ -10,6 +10,12 @@ check_python_version() {
   fi
 }
 
+# Check if Python 3.12 is available
+if ! command -v python3.12 &> /dev/null; then
+  echo "Python 3.12 is not installed or not in PATH. Please install Python 3.12."
+  exit 1
+fi
+
 # Check if the virtual environment directory exists
 if [ ! -d "pycalcs" ]; then
   echo "Creating virtual environment with Python 3.12..."
